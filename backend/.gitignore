@@ -1,0 +1,5 @@
+**/__pycache__*
+db.sqlite3
+api/migrations/[^(__init__.py)]*
+.env
+/venv
