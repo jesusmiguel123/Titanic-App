@@ -1,5 +1,5 @@
 **/__pycache__*
 db.sqlite3
-api/migrations/[^(__init__.py)]*
+Titanic/migrations/[^(__init__.py)]*
 .env
 /venv
