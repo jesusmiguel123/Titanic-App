@@ -1,6 +1,6 @@
 # Titanic App
 
-In this project I create an web app to know if you had been survived in the Titanic thank to a Machine Learning model that I created.
+In this project I created a web app to know if you had survived in the Titanic thank to a Machine Learning model that I created for this purpose.
 
 ## How to know if I had survived in Titanic?
 Send the following structure in your request an a Machine Learning model will response you.
