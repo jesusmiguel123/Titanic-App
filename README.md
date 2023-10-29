@@ -1,4 +1,4 @@
-# Titanic
+# Titanic App
 
 In this project I create an web app to know if you had been survived in the Titanic thank to a Machine Learning model that I created.
 
