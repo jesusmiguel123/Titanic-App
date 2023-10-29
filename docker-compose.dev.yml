@@ -1,16 +1,5 @@
 version: '3.2'
 services:
-  db:
-    container_name: db
-    hostname: ${POSTGRES_HOST}
-    restart: always
-    image: postgres:16.0-alpine
-    env_file: ./backend/.env
-    ports:
-      - ${POSTGRES_PORT}:${POSTGRES_PORT}
-    volumes:
-      - ./database:/var/lib/postgresql/data
-
   backend:
     container_name: backend
     hostname: backend
@@ -20,7 +9,5 @@ services:
       dockerfile: Dockerfile.dev
     ports:
       - 8000:8000
-    depends_on:
-      - db
     volumes:
       - ./backend:/home/app
