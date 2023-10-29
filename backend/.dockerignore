@@ -2,5 +2,5 @@
 .docker*
 Dockerfile*
 **/__pycache__*
-api/migrations/[^(__init__.py)]*
+Titanic/migrations/[^(__init__.py)]*
 /venv
