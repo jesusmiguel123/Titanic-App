@@ -2,6 +2,5 @@
 .docker*
 Dockerfile*
 **/__pycache__*
-db.sqlite3
 api/migrations/[^(__init__.py)]*
 /venv
