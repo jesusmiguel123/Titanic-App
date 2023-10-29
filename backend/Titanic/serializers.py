@@ -2,7 +2,12 @@ from rest_framework.serializers import (
    ModelSerializer,
    ReadOnlyField
 )
-from .models import Passenger
+from .models import Passenger, EmbarkedPlace
+
+class EmbarkedPlaceSerializer(ModelSerializer):
+   class Meta:
+      model = EmbarkedPlace
+      fields = '__all__'
 
 class PassengerSerializer(ModelSerializer):
    class Meta:

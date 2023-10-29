@@ -1,0 +1,71 @@
+## Passenger
+### How to know if I had survived in Titanic?
+POST http://127.0.0.1:8000/api/v1/passenger/predict/
+Content-Type: application/json
+
+{
+    "Class": "1",
+    "Name": "John Doe",
+    "Gender": "male",
+    "Age": 12,
+    "SibSp": 0,
+    "ParCh": 0,
+    "Fare": 2.50,
+    "Embarked": "Southampton"
+}
+
+### Get Passengers
+http://127.0.0.1:8000/api/v1/passenger/
+
+### Get a Embarked Place by id
+http://127.0.0.1:8000/api/v1/passenger/1/
+
+### Create a Embarked Place
+POST http://127.0.0.1:8000/api/v1/passenger/
+Content-Type: application/json
+
+{
+    "Survived": false,
+    "Class": "1",
+    "Name": "John Doe",
+    "Gender": "male",
+    "Age": 12,
+    "SibSp": 0,
+    "ParCh": 0,
+    "Fare": 2.50,
+    "Embarked": "Southampton"
+}
+
+### Delete a passenger by id
+DELETE http://127.0.0.1:8000/api/v1/passenger/1/
+
+## Embarked Place
+### Get Embarked Places
+http://127.0.0.1:8000/api/v1/embarked-place/
+
+### Get a Embarked Place by id
+http://127.0.0.1:8000/api/v1/embarked-place/1/
+
+### Create a Embarked Place
+POST http://127.0.0.1:8000/api/v1/embarked-place/
+Content-Type: application/json
+
+{
+   "Place": "A"
+}
+
+### Create multiple Embarked Places
+POST http://127.0.0.1:8000/api/v1/embarked-place/
+Content-Type: application/json
+
+[
+   {
+      "Place": "A"
+   },
+   {
+      "Place": "B"
+   }
+]
+
+### Delete a embarked place by id
+DELETE http://127.0.0.1:8000/api/v1/embarked-place/1/

@@ -5,6 +5,16 @@ from django.core.validators import (
    DecimalValidator
 )
 
+class EmbarkedPlace(models.Model):   
+   Place = models.CharField(
+      max_length=20,
+      unique=True,
+      null=False
+   )
+
+   def __str__(self):
+      return self.Place
+
 class Passenger(models.Model):
    class ClassChoices(models.IntegerChoices):
       FIRST_CLASS = 1
@@ -14,11 +24,6 @@ class Passenger(models.Model):
    class GenderChoices(models.TextChoices):
       MALE = "male"
       FEMALE = "female"
-   
-   class EmbarkedChoices(models.TextChoices):
-      SOUTHAMPTON = "Southampton"
-      CHERBOURG = "Cherbourg"
-      QUEENSTOWN = "Queenstown"
    
    age_validator = MaxValueValidator(
       100,
@@ -43,7 +48,9 @@ class Passenger(models.Model):
       )
    ]
 
-   Survived = models.BooleanField(default=False)
+   Survived = models.BooleanField(
+      default=False
+   )
    Class = models.PositiveSmallIntegerField(
       choices=ClassChoices.choices
    )
@@ -71,9 +78,10 @@ class Passenger(models.Model):
       validators=fare_validators,
       null=False
    )
-   Embarked = models.CharField(
-      max_length=11,
-      choices=EmbarkedChoices.choices
+   Embarked = models.ForeignKey(
+      EmbarkedPlace,
+      on_delete=models.CASCADE,
+      to_field='Place'
    )
 
    def __str__(self):

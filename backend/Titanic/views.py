@@ -4,8 +4,9 @@ from rest_framework.viewsets import ModelViewSet
 from rest_framework.pagination import PageNumberPagination
 from rest_framework.decorators import action
 
-from .models import Passenger
+from .models import Passenger, EmbarkedPlace
 from .serializers import (
+   EmbarkedPlaceSerializer,
    PassengerSerializer,
    PredictPassengerSerializer
 )
@@ -23,6 +24,25 @@ class CustomPagination(PageNumberPagination):
          'next': self.get_next_link(),
          'results': data
       })
+
+class EmbarkedPlaceViewSet(ModelViewSet):
+   queryset = EmbarkedPlace.objects.all()
+   serializer_class = EmbarkedPlaceSerializer
+
+   def create(self, request):
+      data = request.data
+      many = isinstance(data, list)
+      serializer = self.get_serializer(data=data, many=many)
+      if serializer.is_valid():
+         self.perform_create(serializer)
+         return Response(
+            serializer.data,
+            status=status.HTTP_201_CREATED
+         )
+      return Response(
+         serializer.errors,
+         status=status.HTTP_400_BAD_REQUEST
+      )
 
 class PassengerViewSet(ModelViewSet):
    queryset = Passenger.objects.all()
